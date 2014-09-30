@@ -1,0 +1,1 @@
+This is a small project where I will create a list of tasks, where I can add and remove tasks. It will be connected to Firebase, to try and have a real-time database in the background. SO the project is mainly to tryout AngularJS with Firebase.
