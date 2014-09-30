@@ -1,1 +1,2 @@
 This is a small project where I will create a list of tasks, where I can add and remove tasks. It will be connected to Firebase, to try and have a real-time database in the background. SO the project is mainly to tryout AngularJS with Firebase.
+It is also connected with Twilio and Zapier, so when you press the send notification, it will send a sms from my Twilio account and to my cell-phone with a notification for the task with some information.
