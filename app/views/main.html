@@ -16,14 +16,19 @@
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
+      <th>Done?</th>
       <th>Task</th>
       <th>Information</th>
       <th>Hours</th>
       <th>Created</th>
+      <th>Notified?</th>
       <th>Actions</th>
     </tr>
   </thead>
-  <tr ng-repeat="task in tasks | orderByPriority">
+  <tr ng-repeat="task in tasks | orderByPriority" ng-class="{done: task.done}">
+    <td>
+      <input type="checkbox" ng-model="task.done" ng-change="tasks.$save(task.$id)">
+    </td>
     <td>
       {{task.name}}
     </td>
@@ -37,9 +42,11 @@
       {{task.created | date : 'yyyy-MM-dd H:mm'}}
     </td>
     <td>
-      <button type="submit" class="btn btn-success">Done</button>
-      <button ng-click="sendNotification(task)" type="submit" class="btn btn-info">Send Notification</button>
-      <button ng-click="tasks.$remove(task.$id)" type="submit" class="btn btn-danger">Remove</button>
+      {{task.notified}}
+    </td>
+    <td>
+      <button ng-click="sendNotification(task)" type="submit" class="btn btn-info" ng-disabled="task.done">Send Notification</button>
+      <button ng-click="tasks.$remove(task.$id)" type="submit" class="btn btn-danger" ng-disabled="task.done">Remove</button>
     </td>
   </tr>
   <tbody>
